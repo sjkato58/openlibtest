@@ -17,7 +17,7 @@ fun OpenLibNavHost(
         startDestination = HomeRoute,
         modifier = modifier
     ) {
-        homeRoute {
+        homeRoute { bookKey ->
             appState.toggleBottomSheet()
         }
     }

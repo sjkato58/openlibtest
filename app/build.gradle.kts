@@ -61,6 +61,7 @@ dependencies {
     implementation(libs.compose.navigation)
     implementation(libs.bundles.rxJava)
     implementation(libs.bundles.retrofit)
+    implementation(libs.bundles.coil)
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
     implementation(libs.hilt.navigation.compose)

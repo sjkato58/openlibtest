@@ -20,7 +20,7 @@ import com.mtfuji.sakura.openlibtest.ui.navigation.OpenLibAppState
 import com.mtfuji.sakura.openlibtest.ui.navigation.OpenLibNavHost
 import com.mtfuji.sakura.openlibtest.ui.navigation.rememberOpenLibAppState
 import com.mtfuji.sakura.openlibtest.ui.theme.OpenlibtestTheme
-import io.reactivex.BackpressureStrategy
+import io.reactivex.rxjava3.core.BackpressureStrategy
 import kotlinx.coroutines.reactive.asFlow
 
 @OptIn(ExperimentalMaterial3Api::class)
