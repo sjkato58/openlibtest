@@ -4,7 +4,7 @@ import androidx.annotation.StringRes
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hasRoute
 import com.mtfuji.sakura.openlibtest.R
-import com.mtfuji.sakura.openlibtest.ui.home.HomeRoute
+import com.mtfuji.sakura.openlibtest.feature.home.HomeRoute
 import kotlin.reflect.KClass
 
 enum class DestinationNavData(

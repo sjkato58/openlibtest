@@ -4,25 +4,25 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import jakarta.inject.Singleton
 import retrofit2.Retrofit
+import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
 object RetrofitModule {
 
-    @Provides
     @Singleton
+    @Provides
     fun providesRetrofitGenerator(): OpenLibRetrofitGenerator = OpenLibRetrofitGeneratorImpl()
 
-    @Provides
     @Singleton
+    @Provides
     fun providesRetrofit(
         openLibRetrofitGenerator: OpenLibRetrofitGenerator
     ): Retrofit = openLibRetrofitGenerator.execute()
 
-    @Provides
     @Singleton
+    @Provides
     fun provideMyBooksApi(
         retrofit: Retrofit
     ): OpenLibApi = retrofit.create(OpenLibApi::class.java)

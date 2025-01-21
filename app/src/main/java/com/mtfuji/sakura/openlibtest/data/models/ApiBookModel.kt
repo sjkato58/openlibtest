@@ -5,8 +5,8 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class ApiBookModel(
-    @SerialName("work")
-    val work: String,
+    @SerialName("title")
+    val title: String,
     @SerialName("key")
     val key: String,
     @SerialName("author_keys")
