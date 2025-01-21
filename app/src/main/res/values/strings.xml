@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Openlibtest</string>
+    <string name="nav_data_home">The Amazing Library</string>
 </resources>

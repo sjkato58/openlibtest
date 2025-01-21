@@ -4,7 +4,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class MyBookResponse(
+data class ApiBookResponse(
     @SerialName("page")
     val page: Int,
     @SerialName("numFound")
