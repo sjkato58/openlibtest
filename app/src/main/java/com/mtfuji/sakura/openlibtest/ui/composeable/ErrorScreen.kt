@@ -6,12 +6,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -26,21 +22,13 @@ import com.mtfuji.sakura.openlibtest.ui.theme.dimens
 @Composable
 fun ErrorScreen(
     errorMessage: String,
-    onRetry: () -> Unit,
-    onBackPressed: () -> Unit
+    onRetry: () -> Unit
 ) {
     Column(
         modifier = Modifier
             .fillMaxSize()
             .background(MaterialTheme.colorScheme.errorContainer)
     ) {
-        IconButton(onClick = onBackPressed) {
-            Icon(
-                imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                contentDescription = null,
-                tint = MaterialTheme.colorScheme.error
-            )
-        }
         Box(
             modifier = Modifier
                 .fillMaxWidth()
@@ -96,8 +84,7 @@ private fun Preview() {
     OpenlibtestTheme {
         ErrorScreen(
             errorMessage = "Something went wrong!",
-            onRetry = { },
-            onBackPressed = { }
+            onRetry = { }
         )
     }
 }

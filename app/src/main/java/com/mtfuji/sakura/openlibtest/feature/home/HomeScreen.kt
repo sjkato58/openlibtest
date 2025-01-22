@@ -23,8 +23,7 @@ import com.mtfuji.sakura.openlibtest.ui.theme.OpenlibtestTheme
 fun HomeScreen(
     uiState: UiState<List<BookModel>>,
     onBookSelected: (String) -> Unit,
-    onErrorRetry: () -> Unit,
-    onBackPressed: () -> Unit
+    onErrorRetry: () -> Unit
 ) {
     Box(
         Modifier
@@ -38,8 +37,7 @@ fun HomeScreen(
             is UiState.Error -> {
                 HomeErrorScreen(
                     errorMessage = uiState.message,
-                    onErrorRetry = onErrorRetry,
-                    onBackPressed = onBackPressed
+                    onErrorRetry = onErrorRetry
                 )
             }
             is UiState.Loading -> {
@@ -72,13 +70,11 @@ fun ContentDisplay(
 @Composable
 fun HomeErrorScreen(
     errorMessage: String,
-    onErrorRetry: () -> Unit,
-    onBackPressed: () -> Unit
+    onErrorRetry: () -> Unit
 ) {
     ErrorScreen(
         errorMessage = errorMessage,
-        onRetry = onErrorRetry,
-        onBackPressed = onBackPressed
+        onRetry = onErrorRetry
     )
 }
 
@@ -104,8 +100,7 @@ private fun Preview() {
                 HomeScreen(
                     uiState = UiState.Success(list),
                     onBookSelected = { },
-                    onErrorRetry = { },
-                    onBackPressed = { }
+                    onErrorRetry = { }
                 )
             }
         }
@@ -120,8 +115,7 @@ private fun PreviewError() {
             HomeScreen(
                 uiState = UiState.Error("Something went wrong!"),
                 onBookSelected = { },
-                onErrorRetry = { },
-                onBackPressed = { }
+                onErrorRetry = { }
             )
         }
     }
@@ -135,8 +129,7 @@ private fun PreviewLoading() {
             HomeScreen(
                 uiState = UiState.Loading,
                 onBookSelected = { },
-                onErrorRetry = { },
-                onBackPressed = { }
+                onErrorRetry = { }
             )
         }
     }

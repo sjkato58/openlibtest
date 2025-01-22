@@ -1,0 +1,96 @@
+{
+  "key": "/works/OL1968368W",
+  "title": "The 48 Laws of Power",
+  "first_publish_date": "September 9, 2005",
+  "authors": [
+    {
+      "author": {
+        "key": "/authors/OL236414A"
+      },
+      "type": {
+        "key": "/type/author_role"
+      }
+    },
+    {
+      "author": {
+        "key": "/authors/OL224036A"
+      },
+      "type": {
+        "key": "/type/author_role"
+      }
+    }
+  ],
+  "type": {
+    "key": "/type/work"
+  },
+  "description": {
+    "type": "/type/text",
+    "value": "Amoral, cunning, ruthless, and instructive, this piercing work distills three thousand years of the history of power in to forty-eight well explicated laws. As attention--grabbing in its design as it is in its content, this bold volume outlines the laws of power in their unvarnished essence, synthesizing the philosophies of Machiavelli, Sun-tzu, Carl von Clausewitz, and other great thinkers. Some laws teach the need for prudence (\"Law 1: Never Outshine the Master\"), the virtue of stealth (\"Law 3: Conceal Your Intentions\"), and many demand the total absence of mercy (\"Law 15: Crush Your Enemy Totally\"), but like it or not, all have applications in real life. Illustrated through the tactics of Queen Elizabeth I, Henry Kissinger, P. T. Barnum, and other famous figures who have wielded--or been victimized by--power, these laws will fascinate any reader interested in gaining, observing, or defending against ultimate control."
+  },
+  "covers": [6424160, 402210, 2005253, 917637, 10833844, 12450667, 11416998, 12074278, 1051901, 1007858, 917731, 7565118, 9024888, 9111656, 9160586, 12369503, 12387003, 12496847, 13202281, 5229846, 13330825, 13865141, 13194071, 14047635, 14047636, 13306939, 12301794],
+  "lc_classifications": [
+    "BD438 .G74 1998"
+  ],
+  "dewey_number": [
+    "303.3"
+  ],
+  "subjects": [
+    "Business",
+    "Control (Psychology)",
+    "Contrôle (Psychologie)",
+    "Pouvoir (Morale)",
+    "Nonfiction",
+    "Power (Philosophy)",
+    "Self-Improvement",
+    "Conduct of life",
+    "Contrãole (Psychologie",
+    "Political Science",
+    "Abridged Audio - Misc. Nonfiction",
+    "Politics/International Relations",
+    "History & Theory - General",
+    "Political Science / History & Theory",
+    "Audiobooks",
+    "Political science & theory",
+    "Psychology",
+    "Contrôle (Psychologie.)",
+    "Pouvoir (Morale.)",
+    "BUSINESS & ECONOMICS",
+    "Leadership",
+    "Motivational",
+    "SELF-HELP",
+    "Personal Growth",
+    "Success",
+    "Macht",
+    "Nutzung",
+    "Gesellschaft",
+    "Zwischenmenschliche Beziehung",
+    "Power (Social sciences)",
+    "Power (Psychology)",
+    "Control (Philosophy)",
+    "poder",
+    "influência",
+    "manipulação",
+    "liderança",
+    "ambição",
+    "jogo",
+    "persuasão",
+    "Philosophy and ethics"
+  ],
+  "first_sentence": {
+    "type": "/type/text",
+    "value": "Nicolas Fouquet, Louis XIV's finance minister in the first years of his reign, was a generous man who loved lavish parties, pretty women, and poetry."
+  },
+  "subject_times": [
+    "Ao longo de toda história"
+  ],
+  "latest_revision": 66,
+  "revision": 66,
+  "created": {
+    "type": "/type/datetime",
+    "value": "2009-12-09T22:38:30.270940"
+  },
+  "last_modified": {
+    "type": "/type/datetime",
+    "value": "2024-12-23T09:10:28.372342"
+  }
+}

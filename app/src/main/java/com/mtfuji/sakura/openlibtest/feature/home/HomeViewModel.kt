@@ -1,6 +1,5 @@
 package com.mtfuji.sakura.openlibtest.feature.home
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.mtfuji.sakura.openlibtest.domain.models.BookModel
 import com.mtfuji.sakura.openlibtest.domain.usecase.GetCurrentlyReadingBooksUseCase
@@ -34,11 +33,9 @@ class HomeViewModel @Inject constructor(
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
                 {
-                    Log.e("seiji", "fetchCurrentlyReadingBooks-success: ${it.size}")
                     _uiState.onNext(UiState.Success(it))
                 },
                 {
-                    Log.e("seiji", "fetchCurrentlyReadingBooks-error: $it")
                     _uiState.onNext(UiState.Error(it.message ?: ""))
                 }
             )

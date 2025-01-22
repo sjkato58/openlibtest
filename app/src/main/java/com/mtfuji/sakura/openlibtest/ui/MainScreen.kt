@@ -11,26 +11,18 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.mtfuji.sakura.openlibtest.ui.composeable.OpenLibBottomSheet
 import com.mtfuji.sakura.openlibtest.ui.navigation.OpenLibAppState
 import com.mtfuji.sakura.openlibtest.ui.navigation.OpenLibNavHost
 import com.mtfuji.sakura.openlibtest.ui.navigation.rememberOpenLibAppState
 import com.mtfuji.sakura.openlibtest.ui.theme.OpenlibtestTheme
-import io.reactivex.rxjava3.core.BackpressureStrategy
-import kotlinx.coroutines.reactive.asFlow
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainScreen(
     appState: OpenLibAppState
 ) {
-    val bottomSheetVisible by appState.bottomSheetState.toFlowable(BackpressureStrategy.LATEST)
-        .asFlow()
-        .collectAsState(initial = false)
     Surface(
         modifier = Modifier
             .background(
@@ -40,12 +32,7 @@ fun MainScreen(
         Scaffold(
             modifier = Modifier.fillMaxSize(),
             topBar = {
-                MainTopAppBar(
-                    appState,
-                    onNavigationClick = {
-                        appState.navigateBack()
-                    }
-                )
+                MainTopAppBar(appState)
             }
         ) { innerPadding ->
             OpenLibNavHost(
@@ -55,21 +42,14 @@ fun MainScreen(
                     .padding(innerPadding)
             )
         }
-        LaunchedEffect(bottomSheetVisible) {
-            if (bottomSheetVisible) {
-                appState.sheetState.show()
-            } else {
-                appState.sheetState.hide()
-            }
-        }
     }
+    OpenLibBottomSheet(appState)
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainTopAppBar(
-    appState: OpenLibAppState,
-    onNavigationClick: () -> Unit = {}
+    appState: OpenLibAppState
 ) {
     TopAppBar(
         colors = TopAppBarDefaults.topAppBarColors(
@@ -87,7 +67,7 @@ fun MainTopAppBar(
 @OptIn(ExperimentalMaterial3Api::class)
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
+private fun Preview() {
     OpenlibtestTheme {
         val appState = rememberOpenLibAppState()
         MainScreen(appState)

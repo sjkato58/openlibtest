@@ -14,18 +14,16 @@ import kotlinx.serialization.Serializable
 @Serializable object HomeRoute
 
 fun NavGraphBuilder.homeRoute(
-    onBookSelected: (String) -> Unit,
-    onBackPressed: () -> Unit
+    onBookSelected: (String) -> Unit
 ) {
     composable<HomeRoute> {
-        HomeRoute(onBookSelected, onBackPressed)
+        HomeRoute(onBookSelected)
     }
 }
 
 @Composable
 fun HomeRoute(
     onBookSelected: (String) -> Unit,
-    onBackPressed: () -> Unit,
     viewModel: HomeViewModel = hiltViewModel()
 ) {
     val uiStateFlow = viewModel.uiState.toFlowable(BackpressureStrategy.LATEST).asFlow()
@@ -34,7 +32,6 @@ fun HomeRoute(
     HomeScreen(
         uiState = uiState,
         onBookSelected = onBookSelected,
-        onErrorRetry = viewModel::fetchCurrentlyReadingBooks,
-        onBackPressed = onBackPressed
+        onErrorRetry = viewModel::fetchCurrentlyReadingBooks
     )
 }

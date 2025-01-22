@@ -7,9 +7,9 @@ import dagger.hilt.android.components.ViewModelComponent
 
 @Module
 @InstallIn(ViewModelComponent::class)
-abstract class GetCurrentlyReadingBooksUseCaseModule {
+abstract class GetBookDetailsUseCaseModule {
     @Binds
-    abstract fun bindGetCurrentlyReadingBooksUseCase(
-        getCurrentlyReadingBooksUseCaseImpl: GetCurrentlyReadingBooksUseCaseImpl
-    ): GetCurrentlyReadingBooksUseCase
+    abstract fun bindGetBookDetailsUseCase(
+        getBookDetailsUseCaseImpl: GetBookDetailsUseCaseImpl
+    ): GetBookDetailsUseCase
 }

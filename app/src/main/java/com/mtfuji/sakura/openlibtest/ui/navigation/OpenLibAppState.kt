@@ -48,12 +48,15 @@ class OpenLibAppState(
         stringResource(it.titleTextId)
     } ?: ""
 
-    private val _bottomSheetState: BehaviorSubject<Boolean> = BehaviorSubject.createDefault(false)
-    val bottomSheetState: Observable<Boolean> = _bottomSheetState.hide()
+    private val _bottomSheetState: BehaviorSubject<Pair<Boolean, String?>> = BehaviorSubject.createDefault(Pair(false, null))
+    val bottomSheetState: Observable<Pair<Boolean, String?>> = _bottomSheetState.hide()
 
-    fun toggleBottomSheet() {
-        val currentState = _bottomSheetState.value ?: false
-        _bottomSheetState.onNext(!currentState)
+    fun showBottomSheet(key: String) {
+        _bottomSheetState.onNext(Pair(true, key))
+    }
+
+    fun hideBottomSheet() {
+        _bottomSheetState.onNext(Pair(false, null))
     }
 
     fun navigateBack() = navController.navigateUp()

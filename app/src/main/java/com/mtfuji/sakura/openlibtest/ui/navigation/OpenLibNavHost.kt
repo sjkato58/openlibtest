@@ -19,10 +19,7 @@ fun OpenLibNavHost(
     ) {
         homeRoute(
             onBookSelected = { bookKey ->
-                appState.toggleBottomSheet()
-            },
-            onBackPressed = {
-                appState.navigateBack()
+                appState.showBottomSheet(bookKey)
             }
         )
     }
