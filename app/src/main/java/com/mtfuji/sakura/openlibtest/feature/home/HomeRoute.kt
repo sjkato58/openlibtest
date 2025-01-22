@@ -32,6 +32,6 @@ fun HomeRoute(
     HomeScreen(
         uiState = uiState,
         onBookSelected = onBookSelected,
-        onErrorRetry = viewModel::fetchCurrentlyReadingBooks
+        onErrorRetry = viewModel::onErrorRetry
     )
 }

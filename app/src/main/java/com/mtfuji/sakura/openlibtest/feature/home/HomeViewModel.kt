@@ -25,7 +25,7 @@ class HomeViewModel @Inject constructor(
         fetchCurrentlyReadingBooks()
     }
 
-    fun fetchCurrentlyReadingBooks() {
+    private fun fetchCurrentlyReadingBooks() {
         _uiState.onNext(UiState.Loading)
 
         getCurrentlyReadingBooksUseCase.execute()
@@ -40,6 +40,10 @@ class HomeViewModel @Inject constructor(
                 }
             )
             .also { compositeDispose.add(it) }
+    }
+
+    fun onErrorRetry() {
+        fetchCurrentlyReadingBooks()
     }
 
     override fun onCleared() {

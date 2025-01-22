@@ -9,6 +9,5 @@ data class BookDetailsModel(
     val covers: List<String>,
     val subjects: List<String>,
     val firstSentence: String,
-    val subjectTimes: String,
     val latestRevision: Int
 )

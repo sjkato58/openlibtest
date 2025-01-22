@@ -239,7 +239,6 @@ private fun Preview() {
                                 "Audiobooks",
                             ),
                             firstSentence = "This is the first sentence",
-                            subjectTimes = "Ao longo de toda história",
                             latestRevision = 6,
                         )
                     ),

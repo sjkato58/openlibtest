@@ -57,7 +57,6 @@ fun ApiBookDetailsModel.toModel(apiBookModel: ApiBookModel?): BookDetailsModel =
         covers = this.covers?.extractCoverUrls() ?: listOf(),
         subjects = this.subjects ?: listOf(),
         firstSentence = this.firstSentence?.value ?: "",
-        subjectTimes = this.subjectTimes?.firstOrNull() ?: "",
         latestRevision = this.latestRevision ?: -1,
     )
 

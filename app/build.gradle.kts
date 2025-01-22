@@ -68,6 +68,7 @@ dependencies {
 
     testImplementation(libs.junit)
     testImplementation(libs.junit.jupiter)
+    testImplementation(libs.bundles.rxJava)
 
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -88,12 +89,12 @@ kapt {
 }
 
 private fun BaseExtension.configureSourceSets() {
-    /*sourceSets {
+    sourceSets {
         getByName("main") {
             java.srcDirs("src/main/java")
         }
         getByName("test") {
             java.srcDirs("src/test/java", "src/main/java")
         }
-    }*/
+    }
 }
