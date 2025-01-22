@@ -26,7 +26,7 @@ class HomeViewModel @Inject constructor(
         fetchCurrentlyReadingBooks()
     }
 
-    private fun fetchCurrentlyReadingBooks() {
+    fun fetchCurrentlyReadingBooks() {
         _uiState.onNext(UiState.Loading)
 
         getCurrentlyReadingBooksUseCase.execute()
