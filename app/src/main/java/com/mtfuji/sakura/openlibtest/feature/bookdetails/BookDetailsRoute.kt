@@ -1,6 +1,7 @@
 package com.mtfuji.sakura.openlibtest.feature.bookdetails
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -16,7 +17,9 @@ fun BookDetailsRoute(
     val uiStateFlow = viewModel.uiState.toFlowable(BackpressureStrategy.LATEST).asFlow()
     val uiState by uiStateFlow.collectAsState(initial = UiState.Loading)
 
-    viewModel.saveBookKey(bookKey)
+    LaunchedEffect(bookKey) {
+        viewModel.saveBookKey(bookKey)
+    }
 
     BookDetailsScreen(
         uiState = uiState,

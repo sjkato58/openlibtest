@@ -112,20 +112,22 @@ fun ContentDisplay(
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.primary
             )
-            Text(
-                modifier = Modifier.fillMaxWidth(),
-                text = "Teaser:",
-                style = MaterialTheme.typography.titleMedium,
-                color = MaterialTheme.colorScheme.primary
-            )
-            Text(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(vertical = MaterialTheme.dimens.unit2),
-                text = uiState.data.firstSentence,
-                style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.primary
-            )
+            if (uiState.data.firstSentence.isBlank().not()) {
+                Text(
+                    modifier = Modifier.fillMaxWidth(),
+                    text = "Teaser:",
+                    style = MaterialTheme.typography.titleMedium,
+                    color = MaterialTheme.colorScheme.primary
+                )
+                Text(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(vertical = MaterialTheme.dimens.unit2),
+                    text = uiState.data.firstSentence,
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.primary
+                )
+            }
             if (uiState.data.subjects.isNotEmpty()) {
                 Text(
                     modifier = Modifier.fillMaxWidth(),

@@ -1,6 +1,5 @@
 package com.mtfuji.sakura.openlibtest.data.books.sources.local
 
-import android.util.Log
 import com.mtfuji.sakura.openlibtest.data.models.ApiBookDetailsModel
 import com.mtfuji.sakura.openlibtest.data.models.ApiBookResponse
 import io.reactivex.rxjava3.core.Observable
@@ -24,7 +23,6 @@ class BooksLocalDataSourceImpl @Inject constructor(): BooksLocalDataSource {
     }
 
     override fun saveCurrentlyReading(apiBookResponse: ApiBookResponse) {
-        Log.d("seiji", "saveCurrentlyReading $apiBookResponse")
         cachedData[CacheKey.CURRENTLYREADING] = apiBookResponse
     }
 

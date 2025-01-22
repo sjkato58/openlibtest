@@ -13,15 +13,12 @@ class GetBookDetailsUseCaseImpl @Inject constructor(
     private val booksRepository: BooksRepository
 ): GetBookDetailsUseCase {
     override fun execute(key: String): Observable<BookDetailsModel> {
-        return Observable.zip(
-            booksRepository.getBookDetails(key),
-            booksRepository.getCurrentlyReading(),
-            { apiBookDetailsModel: ApiBookDetailsModel, apiBookResponse: ApiBookResponse ->
+        return booksRepository.getBookDetails(key).flatMap { apiBookDetailsModel: ApiBookDetailsModel ->
+            booksRepository.getCurrentlyReading().map { apiBookResponse: ApiBookResponse ->
                 val bookEntry = apiBookResponse.locateBook(key)
                 apiBookDetailsModel.toModel(bookEntry?.bookModel)
             }
-        ).onErrorResumeNext { throwable: Throwable ->
-            Observable.error(throwable)
-        }
+        }.retry(0)
+            .doOnError { it.printStackTrace() }
     }
 }

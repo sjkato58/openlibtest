@@ -53,10 +53,10 @@ fun ApiBookDetailsModel.toModel(apiBookModel: ApiBookModel?): BookDetailsModel =
         title = this.title,
         firstPublishedData = this.firstPublishDate ?: "",
         authors = apiBookModel?.authorNames ?: listOf(),
-        description = this.description?.value ?: "",
+        description = this.getDescription() ?: "",
         covers = this.covers?.extractCoverUrls() ?: listOf(),
         subjects = this.subjects ?: listOf(),
-        firstSentence = this.firstSentence?.type ?: "",
+        firstSentence = this.firstSentence?.value ?: "",
         subjectTimes = this.subjectTimes?.firstOrNull() ?: "",
         latestRevision = this.latestRevision ?: -1,
     )

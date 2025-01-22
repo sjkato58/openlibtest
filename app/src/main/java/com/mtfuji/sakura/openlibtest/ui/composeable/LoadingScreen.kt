@@ -15,7 +15,7 @@ import com.mtfuji.sakura.openlibtest.ui.theme.OpenlibtestTheme
 
 @Composable
 fun LoadingScreen(
-    color: Color = MaterialTheme.colorScheme.secondary,
+    color: Color = MaterialTheme.colorScheme.primary,
     trackColor: Color = MaterialTheme.colorScheme.surfaceVariant
 ) {
     Box(

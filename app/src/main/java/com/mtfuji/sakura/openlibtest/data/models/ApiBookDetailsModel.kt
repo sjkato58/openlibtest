@@ -1,5 +1,6 @@
 package com.mtfuji.sakura.openlibtest.data.models
 
+import com.mtfuji.sakura.openlibtest.network.retrofit.DynamicFieldSerializer
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -15,8 +16,8 @@ data class ApiBookDetailsModel(
     val authors: List<Author>? = null,
     @SerialName("type")
     val type: BookType,
-    @SerialName("description")
-    val description: Description? = null,
+    @Serializable(with = DynamicFieldSerializer::class)
+    val description: Any? = null,
     @SerialName("covers")
     val covers: List<Int>? = null,
     @SerialName("lc_classifications")
@@ -37,7 +38,19 @@ data class ApiBookDetailsModel(
     val created: Created? = null,
     @SerialName("last_modified")
     val lastModified: LastModified? = null
-)
+) {
+    fun getDescription(): String {
+        return when (description) {
+            is Description -> {
+                description.value
+            }
+            is String -> {
+                description
+            }
+            else -> ""
+        }
+    }
+}
 
 @Serializable
 data class Author(

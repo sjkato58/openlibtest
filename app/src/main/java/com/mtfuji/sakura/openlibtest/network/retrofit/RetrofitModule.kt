@@ -12,6 +12,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 import retrofit2.converter.kotlinx.serialization.asConverterFactory
+import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
 @Module
@@ -22,6 +23,9 @@ object RetrofitModule {
     @Singleton
     fun providesOkHttpClient(): OkHttpClient {
         return OkHttpClient.Builder()
+            .connectTimeout(20, TimeUnit.SECONDS)
+            .readTimeout(20, TimeUnit.SECONDS)
+            .writeTimeout(20, TimeUnit.SECONDS)
             .addInterceptor(HttpLoggingInterceptor().apply {
                 level = HttpLoggingInterceptor.Level.BODY
             })
@@ -35,7 +39,10 @@ object RetrofitModule {
     ): Retrofit = Retrofit.Builder()
         .baseUrl(BASE_URL)
         .addConverterFactory(
-            Json{ coerceInputValues = true }.asConverterFactory("application/json".toMediaType())
+            Json{
+                coerceInputValues = true
+                ignoreUnknownKeys = true
+            }.asConverterFactory("application/json".toMediaType())
         )
         .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
         .client(okHttpClient)
