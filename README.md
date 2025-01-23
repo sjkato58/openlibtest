@@ -53,11 +53,11 @@ If i had more time, I would modularise it so that it had 2 modules on top of the
 
 2 - Data Module - which would contain all the Retrofit, Repository and Data Source relevant code.
 
-## Comments
+## Post Challenge Comments
 
-Overall, a fun challenge, though I think that I would have asked more questions on some specifics of the challenge itself.  I was uncertain of what details could be used for the Book Details Screen, so I may have overdone things.
+Overall, this was a fun challenge, though I think that I would have asked more questions on some specifics of the challenge itself.  I was uncertain of what details could be used for the Book Details Screen, so I may have overdone things.
 
-### Code Reminders
+### Library Reflections
 
 It has been some time since I worked with Rxjava, so it was a bit of a challenge to set the code up.  However, it was a very enjoyable moment of rediscovery to see how the code had changed.
 
@@ -68,3 +68,17 @@ Using Coil was fascinating as previously I would use Glide for displaying Image 
 One thing which did cause me some issues was partway through working on the project, the API started changing some of its content.  This is not something I am unfamiliar with (backend updating feeds without frontend receiving notice; communications breakdowns happen) but it did lead to some time required to adjust the code so that it would not break due to the API not being available (useful for error testing) or the values inside the API Json feed changing.
 
 While stressful, it was a good experience to compromise when a feed is being updated but one cannot rely on if the old feed or new feed was going to be in existence.
+
+### ErrorScreen
+
+One thing I would like to change is the Error Screen.  It displays the information required, but I think that a few improvements could be made if i had more time:
+
+#### Error Specific Throwable
+
+Specific errors identified so that custom error displays could be made so that the user can report an error reliably for fixes to be done.  This is a strategy that was discussed for a client, but never implemented.  I think it would work well, but would require time to investigate what errors return from the API and specific text setup for specific errors.
+
+Note, the idea behind this would be to include a specific code with the error report which would allow us to identify what error is occurring more easily.
+
+#### Variable Screen Height
+
+Given the Screen is to display for all screens, i would like the screen to work for the ModalBottomScreen code.  I would like to investigate how best to setup the screen so that it displays maximum that it can based on its parent Composable.
