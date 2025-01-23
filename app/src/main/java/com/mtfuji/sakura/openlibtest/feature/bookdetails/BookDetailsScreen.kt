@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
@@ -22,6 +23,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -45,7 +47,7 @@ fun BookDetailsScreen(
 ) {
     Box(
         Modifier
-            .fillMaxSize(),
+            .fillMaxWidth(),
         contentAlignment = Alignment.Center
     ) {
         when (uiState) {
@@ -71,9 +73,9 @@ fun ContentDisplay(
 ) {
     LazyColumn(
         modifier = Modifier
-            .fillMaxSize(),
-        contentPadding = PaddingValues(20.dp),
-        verticalArrangement = Arrangement.spacedBy(20.dp)
+            .fillMaxWidth(),
+        contentPadding = PaddingValues(MaterialTheme.dimens.unit5),
+        verticalArrangement = Arrangement.spacedBy(MaterialTheme.dimens.unit2)
     ) {
         item {
             Text(
@@ -211,7 +213,13 @@ fun BookDetailsErrorScreen(
 
 @Composable
 fun BookDetailsLoadingScreen() {
-    LoadingScreen()
+    val screenHeight = LocalConfiguration.current.screenHeightDp.dp
+    val minHeight = screenHeight / 2
+    LoadingScreen(
+        modifier = Modifier
+            .heightIn(min = minHeight)
+            .fillMaxWidth()
+    )
 }
 
 @Preview

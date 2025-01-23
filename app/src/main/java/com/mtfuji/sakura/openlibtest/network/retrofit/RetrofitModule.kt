@@ -47,10 +47,4 @@ object RetrofitModule {
         .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
         .client(okHttpClient)
         .build()
-
-    @Singleton
-    @Provides
-    fun provideMyBooksApi(
-        retrofit: Retrofit
-    ): OpenLibApi = retrofit.create(OpenLibApi::class.java)
 }

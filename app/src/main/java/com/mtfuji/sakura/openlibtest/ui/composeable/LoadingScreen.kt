@@ -16,11 +16,11 @@ import com.mtfuji.sakura.openlibtest.ui.theme.OpenlibtestTheme
 @Composable
 fun LoadingScreen(
     color: Color = MaterialTheme.colorScheme.primary,
-    trackColor: Color = MaterialTheme.colorScheme.surfaceVariant
+    trackColor: Color = MaterialTheme.colorScheme.surfaceVariant,
+    modifier: Modifier = Modifier.fillMaxSize()
 ) {
     Box(
-        modifier = Modifier
-            .fillMaxSize()
+        modifier = modifier
             .background(
                 color = Color.Black.copy(alpha = 0.6f)
             ),
@@ -38,9 +38,7 @@ fun LoadingScreen(
 private fun Preview() {
     OpenlibtestTheme {
         Surface(
-            modifier = Modifier
-                .fillMaxSize()
-                .background(color = Color.White)
+            modifier = Modifier.fillMaxSize()
         ) {
             LoadingScreen()
         }

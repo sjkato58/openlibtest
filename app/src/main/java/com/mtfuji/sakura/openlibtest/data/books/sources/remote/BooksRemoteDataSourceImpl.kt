@@ -2,22 +2,22 @@ package com.mtfuji.sakura.openlibtest.data.books.sources.remote
 
 import com.mtfuji.sakura.openlibtest.data.models.ApiBookDetailsModel
 import com.mtfuji.sakura.openlibtest.data.models.ApiBookResponse
-import com.mtfuji.sakura.openlibtest.network.retrofit.OpenLibApi
+import com.mtfuji.sakura.openlibtest.data.books.sources.remote.api.BooksApi
 import io.reactivex.rxjava3.core.Observable
 import javax.inject.Inject
 
 class BooksRemoteDataSourceImpl @Inject constructor(
-    private val openLibApi: OpenLibApi
+    private val booksApi: BooksApi
 ): BooksRemoteDataSource {
     override fun getCurrentlyReading(): Observable<ApiBookResponse> {
-        return openLibApi.getCurrentlyReading()
+        return booksApi.getCurrentlyReading()
     }
 
     override fun getWantToRead(): Observable<ApiBookResponse> {
-        return openLibApi.getWantToRead()
+        return booksApi.getWantToRead()
     }
 
     override fun getBookDetails(key: String): Observable<ApiBookDetailsModel> {
-        return openLibApi.getBookDetails(key)
+        return booksApi.getBookDetails(key)
     }
 }
